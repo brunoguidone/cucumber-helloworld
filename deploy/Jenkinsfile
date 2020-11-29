@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+
+    options {
+        timeout(time: 1, unit: 'HOURS')
+    }
+
+    stages {
+        stage('Build & Tag Image') {
+            steps {
+                script{
+                    mvn test
+                }
+            }
+        }
+        
+
+        stage('Pulling and Deploying') {
+           steps {
+               sh '''ls'''
+           }
+        }
+    }
+}
